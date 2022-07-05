@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./about.css">
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
+    <script src="./swiper-bundle.min.js"></script>
+    <script src="./jquery.js"></script>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div class="loading">
+        <img src="./loading.png">
+    </div>
+    <div class="nav">
+        <div class="navBox">
+            <div class="userName">Silly Yang</div>
+            <div class="myProfile">|MYPROFILE</div>
+        </div>
+        <div class="link">
+            <div class="onSelect" style="left: 41vw;"></div>
+            <a href="./index.html">HOME</a>
+            <a href="./about.html">ABOUT</a>
+            <a href="./album.html">ALBUM</a>
+            <a href="./more.html">MORE</a>
+        </div>
+    </div>
+    <div class="myInfo">
+        <div class="myImg" style="background-image: url(https://thirdwx.qlogo.cn/mmopen/vi_32/MuBTa5KLibrdbnzFg2NubiaoZkGgTvShd3pJpMUGOSuNDO9hjnR9X3dsKSibIkXZZMYwN4ica0kaSwIeLtzZwtXrHQ/132);"></div>
+        <div class="myDescription">
+            <div class="icon" style="background-image: url(./nickname.png);width: 2vw;height: 2vw;"></div>
+            <div class="InfoText">哲学主义青年|Silly Yang</div>
+        </div>
+        <div class="myDescription">
+            <div class="icon" style="background-image: url(./tag.png);width: 2vw;height: 2vw;"></div>
+            <div class="InfoText">游戏</div>
+            <div class="InfoText">美食</div>
+            <div class="InfoText">宅</div>
+            <div class="InfoText">二次元</div>
+            <div class="InfoText">原P</div>
+            <div class="InfoText">单机游戏</div>
+            <div class="InfoText">苦逼大学生</div>
+            <div class="InfoText">崩崩崩</div>
+            <div class="InfoText">老头环</div>
+            <div class="InfoText">管人痴</div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="swiper-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/73941412_p0.jpg);"></div>
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/pics05.jpg);"></div>
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/pics01.jpg);"></div>
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/pics03.jpg);"></div>
+                </div>
+            </div>
+            <div class="swiper-dots">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="calendar">
+                <div style="font-size: 3vw;"><b>00:00:00</b></div>
+                <div style="font-size: 2vw;"></div>
+            </div>
+        </div>
+        <div class="tabs-container">
+            <div class="tabs-img" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/about2.jpg);"></div>
+            <div class="tabs">
+                <div class="tabs-topic">关于我|ABOUT ME</div>
+                <p class="tabs-text">昵称|NICKNAME:哲学主义青年<br><br>学校|SCHOOL:中南财经政法大学<br><br>爱好|HOBBY:Game、Anime</p>
+            </div>
+        </div>
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tabs-topic">关于网站|ABOUT PAGE</div>
+                <p class="tabs-text">语言|MADE BY:HTML+CSS+JQUERY</p>
+            </div>
+            <div class="tabs-img" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/about1.jpg);"></div>
+        </div>
+        <div class="tabs-container">
+            <div class="tabs-img" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/tx.png);"></div>
+            <div class="tabs">
+                <div class="tabs-topic">其他|ELSE</div>
+                <p class="tabs-text">人类的赞歌即是勇气的赞歌</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        @2021-2022|By: Silly Yang <br>
+        网页版权归Silly Yang所有 <br>
+        The Anthem of man is the Anthem of courage
+    </div>
+    
+</body>
+<script>
+    var index = 2;
+    $(function(){
+        $(".myDescription .InfoText").hide()
+        let date = new Date()
+        console.log(date)
+        $(".calendar div").eq(1).append("<b>"+date.getFullYear()+" "+(date.getMonth()+1)+" "+date.getDate()+"</b>")
+        setInterval(function(){
+            let date = new Date()
+            $("b").eq(0).replaceWith("<b>"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"</b>")
+        },1000)
+        $(".swiper-dots div").eq(0).css('background','black')
+        $(".myInfo").mouseenter(function(){
+            console.log("enter")
+            $(".myInfo").stop().animate({width: '16vw'},500,()=>{$(".myDescription .InfoText").fadeIn()})
+        })
+        $(".myInfo").mouseleave(function(){
+            console.log("leave")
+            $(".myDescription .InfoText").stop().hide()
+            $(".myInfo").stop().animate({width: '8vw'},500)
+        })
+    })
+    var mySwiper = new Swiper('.swiper', {
+        on:{
+            slideChangeTransitionStart: function(){
+                // console.log(this.activeIndex)
+                $(".swiper-dots div").eq(this.activeIndex).css('background','black').siblings().css('background','rgba(255, 255, 255, 0.495)')
+            },
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,78 @@
+.topic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.25) url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/96800494_p0.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+.topic p{
+    height: 40vh;
+    width: 80vw;
+    color: rgba(255, 255, 255, 0.845);
+    font-family: '微软雅黑 ';
+    font-weight: bold;
+    font-size: 10vh;
+}
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.main-container .tabs{
+    margin: auto 3vw;
+    width: 16vw;
+    height: 68vh;
+    border-radius: 1vw;
+    background-color: rgba(255, 255, 255, 0.688);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.412);
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    text-decoration: none;
+}
+.main-container .tabs:hover{
+    transform: scale(1.05);
+}
+.main-container .tabs .img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 12vw;
+    transition: all 0.5s;
+}
+.main-container .tabs .img:hover{
+    transform: scale(1.1);
+}
+.main-container .tabs .textTopic{
+    margin: 3vh auto 1vh auto;
+    text-align: center;
+    color: rgb(108, 108, 108);
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: '微软雅黑 ';
+}
+.main-container .tabs .text{
+    box-sizing: border-box;
+    margin-bottom: 20vh;
+    width: 90%;
+    line-height: 90%;
+    text-align: center;
+    color: rgb(138, 138, 138);
+    font-family: '微软雅黑 ';
+    font-weight: normal;
+}

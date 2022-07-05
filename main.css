@@ -1,0 +1,121 @@
+@keyframes loading{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.35) url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/84019350_p0.jpg) fixed center no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100vw;
+    height: 12vh;
+    background-color: rgba(206, 206, 206, 0.574);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.nav:hover{
+    background-color: rgba(219, 219, 219, 0.789);
+}
+.nav .userName{
+    /* flex: 1; */
+    margin-left: 4vw;
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 12vh;
+    font-size: 3.5vw;
+    color: rgb(86, 86, 86);
+    font-family: '微软雅黑 ';
+    font-weight: bold;
+}
+.nav .myProfile{
+    /* flex: 1; */
+    box-sizing: border-box;
+    line-height: 16vh;
+    font-family: '微软雅黑 ';
+    color: rgb(86, 86, 86);
+    font-weight: bold;
+}
+.nav .navBox{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+.nav .link{
+    flex: 1.5;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+}
+.nav .link a{
+    display: block;
+    margin: 1vw;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 12vh;
+    width: 12vw;
+    height: 100%;
+    font-family: '微软雅黑 ';
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: rgb(86, 86, 86);
+    text-decoration: none;
+    z-index: 1;
+}
+.nav .link a:hover{
+    color: rgb(52, 52, 52);
+}
+.nav .onSelect{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12vw;
+    height: 100%;
+    transition: left 0.5s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.753);
+    border-radius: 1vw;
+    z-index: 0;
+}
+.bottom{
+    font-family: '微软雅黑 ';
+    padding: 2vh;
+    font-size: 1vw;
+    box-sizing: border-box;
+    text-align: center;
+    /* line-height: 12vh; */
+    width: 100vw;
+    height: 12vh;
+    background-color: rgba(220, 220, 220, 0.7);
+}
+.loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.808);
+}
+.loading>img{
+    width: 5vw;
+    height: 5vw;
+    animation: loading 2s ease-in-out infinite;
+}

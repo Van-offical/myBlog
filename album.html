@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALBUM</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./album.css">
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
+    <script src="./swiper-bundle.min.js"></script>
+    <script src="./jquery.js"></script>
+    <script src="./main.js"></script>
+</head>
+<body style="transition:all 0.8s ease-in-out;">
+    <div class="loading">
+        <img src="./loading.png">
+    </div>
+    <div class="nav">
+        <div class="navBox">
+            <div class="userName">Silly Yang</div>
+            <div class="myProfile">|MYPROFILE</div>
+        </div>
+        <div class="link">
+            <div class="onSelect" style="left: 41vw;"></div>
+            <a href="./index.html">HOME</a>
+            <a href="./about.html">ABOUT</a>
+            <a href="./album.html">ALBUM</a>
+            <a href="./more.html">MORE</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="swiper-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/8446137fca806538ab48605e80dda144ac3482b0.dib);"></div>
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/pics04.jpg);"></div>
+                    <div class="swiper-slide" style="background-image: url(https://cdn.jsdelivr.net/gh/Van-offical/ImgStore/0a525230d7e35a45faf4d5cf99e3b05f.jpg);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="stage"></div>
+        <div class="controlBox">
+            <div class="MusicTopic"><marquee>ドーナドーナのうた——月乃</marquee></div>
+            <div style="width: 50vw;height: 100%;display: flex;flex-direction: row;justify-content: center;">
+                <img src="./next.png" style="transform: rotateZ(180deg);">
+                <img src="./play.png">
+                <img src="./next.png">
+            </div>   
+        </div>
+    </div>
+    <div class="bottom">
+        @2021-2022|By: Silly Yang <br>
+        网页版权归Silly Yang所有 <br>
+        The Anthem of man is the Anthem of courage
+    </div>
+    <!-- <audio id="myAudio"></audio> -->
+</body>
+<script>
+    var index = 3;
+    var srcList = ["https://cdn.jsdelivr.net/gh/Van-offical/MP3Store/dohnadohna1.m4a",
+    "https://cdn.jsdelivr.net/gh/Van-offical/MP3Store/MoonHalo.m4a",
+    "https://cdn.jsdelivr.net/gh/Van-offical/MP3Store/ramblingpleat.m4a"
+    ]
+    var topicList = ["ドーナドーナのうた——月乃","Moon Halo——茶理理/TetraCalyx/Hanser","rambling pleat——アリスソフト"]
+    var audio = document.createElement("audio")
+    audio.src = srcList[1]
+    audio.crossOrigin = 'anonymous'
+    audio.preload = 'auto'
+    var audioContext = null
+    var audiosourceNode = null
+    var analyser = null
+    //初始化音频控件
+    var isPlay = false
+    var Interval = null
+    function AudioContrl(){
+        if(isPlay){
+            audio.pause()
+            $(".controlBox img").eq(1).attr("src","./play.png")
+            $(".stage div").stop().css("height","0.5vw")
+            isPlay = false
+            clearInterval(Interval)
+        }  
+        else{
+            audioInit()
+            audio.play()
+            $(".controlBox img").eq(1).attr("src","./pause.png")
+            isPlay = true
+            Interval = setInterval(function(){getAudioResult()},100)
+        }
+        }
+    function audioInit(){
+        if(audioContext == null)
+            audioContext = new window.AudioContext()
+        if(analyser == null)
+            analyser = audioContext.createAnalyser()
+        if(audiosourceNode == null)
+            audiosourceNode = audioContext.createMediaElementSource(audio)
+        audiosourceNode.connect(analyser)
+        audiosourceNode.connect(audioContext.destination)
+    }
+    function audioClose(){
+        if(audiosourceNode != null){
+            audiosourceNode.disconnect()
+        }
+    }
+    function getAudioResult(){
+        // console.log(true)
+        let audioArray = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(audioArray)
+        // console.log(audioArray)
+        $(".stage div").each(function(index){
+            $(this).animate({
+                height: audioArray[index*10]*audioArray[index*10]/150+"px"
+            },50)
+        })
+    }
+    function InitDiv(num){
+        let stageEL = document.querySelector('.stage')
+        // console.log(stageEL)
+        for(let i = 0;i<num;i++){
+            let divEL = document.createElement('div')
+            stageEL.append(divEL)
+        }
+    }
+    $(function(){
+        //初始化波形图
+        InitDiv(60)
+        //初始化音频
+        audio.addEventListener("ended",function(){AudioContrl()})
+        $(".controlBox img").eq(1).click(function(){
+            AudioContrl()
+        })
+        $(".controlBox img").eq(2).click(function(){
+            mySwiper.slideNext()
+            if(isPlay)
+                AudioContrl();
+            audioClose()
+        })
+        $(".controlBox img").eq(0).click(function(){
+            mySwiper.slidePrev()
+            if(isPlay)
+                AudioContrl();
+            audioClose()
+        })       
+        var mySwiper = new Swiper('.swiper', {
+        spaceBetween: 40,
+        speed: 800,
+        loop: true,
+        on:{
+            slideChange:function(){
+                $("body").css("backgroundImage",$(".swiper-slide").eq(this.realIndex+1).css("backgroundImage"))
+                audio.src = srcList[this.realIndex]
+                $(".MusicTopic marquee").replaceWith("<marquee>"+topicList[this.realIndex]+"</marquee>")
+            }
+        }
+    })
+    })
+
+</script>
+</html>

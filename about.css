@@ -1,0 +1,172 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    overflow: hidden;
+}
+.tabs-container{
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3vh;
+    margin-left: 5vw;
+    margin-bottom: 2vh;
+    height: 20vw;
+    width: 72vw;
+}
+.tabs-container .tabs-img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1vw;
+    width: 20vw;
+    height: 20vw;
+    box-sizing: border-box;
+    transition: all 0.5s;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.412);
+}
+.tabs-container .tabs-img:hover{
+    transform: scale(1.1);
+}
+.tabs{
+    background: rgba(226, 255, 252, 0.608);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.412);
+    border-radius: 1vw;
+    box-sizing: border-box;
+    width: 50vw;
+    height: 20vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tabs .tabs-topic{
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    text-align: center;
+    color: rgb(108, 108, 108);
+    font-size: 2vw;
+    font-weight: bold;
+    font-family: '微软雅黑 ';
+}
+.tabs .tabs-text{
+    text-align: center;
+    color: rgb(108, 108, 108);
+    font-size: 1.5vw;
+    font-weight: lighter;
+    font-family: '微软雅黑 ';
+}
+.myInfo{
+    position: fixed;
+    top: 15vh;
+    right: 5vw;
+    z-index: 1;
+    width: 8vw;
+    height: 37vw;
+    background-color: rgba(255, 255, 255, 0.693);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.412);
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.myInfo .myImg{
+    margin: 1vw;
+    box-sizing: border-box;
+    width: 4.5vw;
+    height: 4.5vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    border: 3px rgba(200, 255, 255, 0.693) solid;
+}
+.myInfo .icon{
+    margin: 0.5vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.myInfo .myDescription{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.myDescription .InfoText{
+    margin-right: 0.5vw;
+    font-size: 1vw;
+    color: rgb(32, 32, 32);
+    font-weight: lighter;
+    font-family: '微软雅黑 ';
+}
+.swiper-container{
+    position: relative;
+    margin-top: 15vh;
+    margin-left: 5vw;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 72vw;
+    height: 25vw;
+}
+.swiper{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.412);
+    border-radius: 1vw;
+    width: 75%;
+    height: 100%;
+}
+.swiper-slide{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper-dots{
+    position: absolute;
+    bottom: 1vw;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 1vh;
+}
+.swiper-dots>div{
+    width: 1.5vw;
+    height: 1vh;
+    background: rgba(255, 255, 255, 0.495);
+    margin: 1vw;
+}
+.swiper-dots>div:hover{
+    background: black;
+}
+.calendar{
+    background: rgba(226, 255, 252, 0.608);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.412);
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin-left: 2vw;
+    width: 23%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.calendar>div>b{
+    text-align: center;
+    color: rgb(108, 108, 108);
+    font-weight: lighter;
+    font-family: '微软雅黑 ';
+}

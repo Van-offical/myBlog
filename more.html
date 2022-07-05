@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORE</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./more.css">
+    <script src="./jquery.js"></script>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <div class="navBox">
+            <div class="userName">Silly Yang</div>
+            <div class="myProfile">|MYPROFILE</div>
+        </div>
+        <div class="link">
+            <div class="onSelect" style="left: 41vw;"></div>
+            <a href="./index.html">HOME</a>
+            <a href="./about.html">ABOUT</a>
+            <a href="./album.html">ALBUM</a>
+            <a href="./more.html">MORE</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="topic">Contact Me</div>
+            <p class="text">Nothing to say.
+                Just Be Your Self.
+            </p>
+            <div class="imgcontainer">
+                <a href="https://github.com/Van-offical" style="background-image: url(./github.png);transform: scale(1.2);"></a>
+                <a href="https://space.bilibili.com/41072705" style="background-image: url(./bili.png);"></a>
+                <img src="./qq.png">
+            </div>
+            <div id="qq" style="position: absolute;bottom: 2vw;left: 46vw;">3031823309</div>
+        </div>
+    </div>
+    <div class="bottom">
+        @2021-2022|By: Silly Yang <br>
+        网页版权归Silly Yang所有 <br>
+        The Anthem of man is the Anthem of courage
+    </div>   
+</body>
+<script>
+    var index = 4;
+    $(function(){
+        $("#qq").hide()
+        $("img").mouseover(function(){
+            $("#qq").fadeIn()
+        })
+        $("img").mouseleave(function(){
+            $("#qq").fadeOut()
+        })
+    })
+</script>
+</html>
